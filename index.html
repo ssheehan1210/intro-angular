@@ -3,23 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+	<title>Intro to Angular</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 	<script src="app.js"></script>
 	<link rel="stylesheet" href="">
 </head>
 <body ng-controller="MyController as ctrl">
-	<a ng-click="ctrl.getCrimes()">Get CRIMES</a>
+	<a ng-click="ctrl.getCrimes()">Get CRIMES</a> <!-- Calls the API in the app.js -->
 
+	<!-- See app.js for how the result.crimeText data was organized -->
 	<ul>
 		<li ng-repeat="result in ctrl.resultsArray">
 			<div>{{$index}}: {{result.crimeText}}</div>
 		</li>
 	</ul>
 
+	<br>
 
-
-<!-- 	<h1>To Do List:</h1>
+	<h3>To Do List:</h3>
+	<!-- The repeat action makes the list item a model for each instance of info being called and thrown onto the screen -->
 	<ul>
 		<li ng-repeat="task in ctrl.toDoList">
 			<div ng-click="ctrl.revealEditor()">{{task}}</div>
@@ -37,48 +39,33 @@
 	<form ng-submit="ctrl.handleSubmit()">
 		<input type="text" ng-model="ctrl.toDoText">
 		<input type="submit" value="Submit New Task">
-	</form> -->
+	</form>
 
+	<br>
 
+	<div>
+		<span>{{ctrl.someProperty}}</span> <!-- Reveals text based on the value of this.someProperty in app.js -->
+		<form ng-submit="ctrl.handleSubmit()">
+			Change the property's value: <input type="text" ng-model="ctrl.someProperty"><br> <!-- Will change the text in the above span line based on what you type into the input -->
+			<input type="submit" value="Submit THE FORM"> <!-- Will return the console.log that was set in app.js -->
+		</form>
 
-<!-- 	<div>
- --><!-- 		<span>{{ctrl.someProperty}}</span>
- -->		<!-- Reveals text based on the value of this.someProperty in app.js -->
+		<div ng-click="ctrl.handleClick()">Click Me</div><br> <!-- Returns the console.log that was made within the handleClick function in app.js -->
 
-<!-- 		<form ng-submit="ctrl.handleSubmit()">
- -->			<!-- Change the property's value: <input type="text" ng-model="ctrl.someProperty"> --><!-- <br> -->
-			<!-- Will change the text in the above span line based on what you type into the input -->
-<!-- 			<input type="submit" value="Submit THE FORM">
- -->			<!-- Will return the console.log that was set in app.js -->
-<!-- 		</form>
- -->
-<!-- 		<div ng-click="ctrl.handleClick()">Click Me</div><br>
- -->		<!-- Returns the console.log that was made within the handleClick function in app.js -->
+		<div ng-bind="ctrl.hello"></div><br> <!-- Returns a div block with the text equal to the value of this.hello in app.js -->
+		{{ctrl.hello}} <!-- Just returns the text like the one above, only not within any particular div element -->
 
-<!-- 		<div ng-bind="ctrl.hello"></div><br>
- -->		<!-- Returns a div block with the text equal to the value of this.hello in app.js -->
-<!-- 		{{ctrl.hello}}
- -->		<!-- Just returns the text like the one above, only not within any particular div element -->
+		<section ng-class="(ctrl.isActive) ? 'active' : '' "></section> <!-- When the value of this.isActive is true, then the section has a class named 'active' -->
 
-<!-- 		<section ng-class="(ctrl.isActive) ? 'active' : '' "></section>
- -->		<!-- When the value of this.isActive is true, then the section has a class named 'active' -->
+		<ul>
+			<li ng-repeat="item in ctrl.items">{{$index}}: {{item}}</li> <!-- Returns an unordered list of items from the this.items array, as well as their index number (the word 'item' in the ng-repeat can be switched out with any other name you want) -->
+		</ul>
 
-<!-- 		<ul>
- -->			<!-- <li ng-repeat="item in ctrl.items">{{$index}}: {{item}}</li> -->
-			<!-- Returns an unordered list of items from the this.items array, as well as their index number (the word 'item' in the ng-repeat can be switched out with any other name you want) -->
-<!-- 		</ul>
- -->
-<!-- 		<div ng-if="ctrl.divExists">Remove Me</div>
- -->		<!-- Conditional where if this.divExists equals false, then the div will be commented out -->
-<!-- 		<div ng-hide="ctrl.hideDiv">Hide Me</div>
- -->		<!-- If this.hideDiv equals true, then the display property of this div will be 'none !important' -->
-<!-- 		<div ng-show="ctrl.showDiv">Show Me</div>
- -->		<!-- If this.showDiv doesn't equal true, then its block display will be replaced with 'none !important' -->
+		<div ng-if="ctrl.divExists">Remove Me</div> <!-- Conditional where if this.divExists equals false, then the div will be commented out -->
+		<div ng-hide="ctrl.hideDiv">Hide Me</div> <!-- If this.hideDiv equals true, then the display property of this div will be 'none !important' -->
+		<div ng-show="ctrl.showDiv">Show Me</div> <!-- If this.showDiv doesn't equal true, then its block display will be replaced with 'none !important' -->
 
-<!-- 		<img src="{{ctrl.imgSrc}}">
- -->		<!-- Returns the image based on the link you gave as the value for this.imgSrc -->
-<!-- 	</div>
- -->
- 	
- </body>
+		<img src="{{ctrl.imgSrc}}"> <!-- Returns the image based on the link you gave as the value for this.imgSrc -->
+	</div>
+</body>
 </html>
