@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="">
+</head>
+<body ng-controller="MyController as ctrl">
+	<span>{{ctrl.someProperty}}</span>
+
+	<form ng-submit="ctrl.handleSubmit()">
+		Change the property's value: <input type="text" ng-model="ctrl.someProperty"><br>
+		<input type="submit" value="Submit THE FORM">
+	</form>
+
+	<div ng-click="ctrl.handleClick()">Click Me</div>
+
+
+
+<!-- 	<div ng-bind="ctrl.hello"></div><br>
+	{{ctrl.hello}}
+
+	<section ng-class="(ctrl.isActive) ? 'active' : '' "></section>
+
+	<ul>
+		<li ng-repeat="item in ctrl.items">{{$index}}: {{item}}</li>
+	</ul>
+
+	<div ng-if="ctrl.divExists">Remove Me</div>
+	<div ng-hide="ctrl.hideDiv">Hide Me</div>
+	<div ng-show="ctrl.showDiv">Show Me</div>
+
+	<img src="{{ctrl.imgSrc}}"> -->
+</body>
+</html>
